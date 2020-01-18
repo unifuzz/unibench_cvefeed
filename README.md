@@ -1,2 +1,2 @@
 # unibench_cvefeed
-CVE feed from 20 unibench programs
+CVE feed for 20 unibench programs

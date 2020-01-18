@@ -1,0 +1,10 @@
+version: ~> 1.0
+
+language: shell
+
+
+script: 
+  - wget https://cve.mitre.org/data/downloads/allitems.csv.gz && gunzip allitems.csv.gz
+  - for proj in exiv2 gdk-pixbuf jasper jhead libtiff lame mp3gain swftools ffmpeg flvmeta Bento4 cflow ncurses jq mujs xpdf sqlite binutils tcpdump; do grep -i ${proj} allitems.csv >> unibench_cve.csv; done
+  - curl https://v0.api.upyun.com/py3iodownload -F file=@unibench_cve.csv -F policy=$UPYUN_POLICY -F signature=$UPYUN_SIGN
+
